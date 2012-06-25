@@ -1,0 +1,88 @@
+<html>
+<head>
+	
+</head>
+
+<body>
+	<input type="text" id="list" />
+	<input type="button" id="saveBtn" value="save" />
+
+<script type="text/javascript">
+	var LocalStorage = {
+		userData: null,
+		name: location.hostname,
+
+		init: function(){
+			if(!window.localStorage){
+				if (!LocalStorage.userData) {
+					try {
+						LocalStorage.userData = document.createElement('INPUT');
+						LocalStorage.userData.type = "hidden";
+						LocalStorage.userData.style.display = "none";
+						LocalStorage.userData.addBehavior ("#default#userData");
+						document.body.appendChild(LocalStorage.userData);
+						var expires = new Date();
+						expires.setDate(expires.getDate()+365);
+						LocalStorage.userData.expires = expires.toUTCString();
+					} catch(e) {
+						return false;
+					}
+				}
+			}
+			return true;
+		},
+
+		setItem: function(key, value) {
+			if(!window.localStorage){
+				if(LocalStorage.init()){
+					LocalStorage.userData.load(LocalStorage.name);
+					LocalStorage.userData.setAttribute(key, value);
+					LocalStorage.userData.save(LocalStorage.name);
+				}
+			}else{
+				localStorage.setItem(key, value);
+			}
+		},
+
+		getItem: function(key) {
+			if(!window.localStorage){
+				if(LocalStorage.init()){
+					LocalStorage.userData.load(LocalStorage.name);
+					return LocalStorage.userData.getAttribute(key);
+				}
+			}else{
+				return localStorage.getItem(key);
+			}
+		},
+
+		remove: function(key) {
+			if(!window.localStorage){
+				if(LocalStorage.init()){
+					LocalStorage.userData.load(LocalStorage.name);
+					LocalStorage.userData.removeAttribute(key);
+					LocalStorage.userData.save(LocalStorage.name);
+				}
+			}else{
+				localStorage.removeItem(key);
+			}
+		}
+	};
+	
+	var listTxt = document.getElementById('list');
+	var saveBtn = document.getElementById('saveBtn');
+	
+	window.onload = function(){
+		if(LocalStorage.getItem('ne-data') == undefined){
+			listTxt.value = "";
+		}else{
+			listTxt.value = LocalStorage.getItem('ne-data');
+		}
+		
+		saveBtn.onclick = function(){
+			LocalStorage.setItem('ne-data', listTxt.value);
+		}
+	};
+
+</script>
+</body>
+</html>

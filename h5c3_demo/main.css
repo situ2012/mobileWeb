@@ -1,0 +1,17 @@
+p.bucky + p{color: blue;}
+
+
+/*body > p {color: green;}*/
+
+
+/** {color: blue;}
+
+:not(.bucky){color: red;}*/
+
+
+/*p:nth-child(odd){
+	color: green;
+}
+p:nth-child(even){
+	color: red;
+}*/
