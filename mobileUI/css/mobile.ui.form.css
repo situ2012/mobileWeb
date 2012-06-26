@@ -102,8 +102,7 @@ textarea.mobile-ui-form {
 } /* These properties determine the look of textarea inputs. */
 
 
-input.mobile-ui-form { 
-	
+input.mobile-ui-form {
 	display:inline-block;
 	width:65%;
 	margin-top:4px; margin-bottom:12px;
@@ -116,10 +115,7 @@ input.mobile-ui-form {
 	-webkit-box-shadow:inset 2px 2px 6px rgba(0,0,0,.5); box-shadow:inset 2px 2px 6px rgba(0,0,0,.5);
 } /* These properties combine to create the look of the input fields. */
 
-
-
 input.mobile-ui-form:hover, textarea.mobile-ui-form:hover, input.mobile-ui-form:focus, textarea.mobile-ui-form:focus { border-color:#ccc; } /* Changes the border color of the input field while active. */
-
 
 input.mobile-ui-form[type=checkbox] ,input.mobile-ui-form[type=radio]  {
 	position: absolute;
@@ -131,7 +127,6 @@ input.mobile-ui-form[type=checkbox] ,input.mobile-ui-form[type=radio]  {
 } /* Blocks rendering of the native radio controls. */
 
 input.mobile-ui-form[type=checkbox] + label,input.mobile-ui-form[type=radio] + label { 
-	
 	float:left;
 	font-size:15px;
 	font-weight:bold;
@@ -144,10 +139,7 @@ input.mobile-ui-form[type=checkbox] + label,input.mobile-ui-form[type=radio] + l
 	
 } /* Styling for the labels. */
 
-
 /* Following block of paragraph classes sets up the usage of the custom radio and checkbox graphics. */
-
-
 input.mobile-ui-form[type=radio] + label { background-position:0 -225px; }
 input.mobile-ui-form[type=checkbox] + label { background-position:0 -25px; }
 
@@ -232,7 +224,6 @@ input.mobile-ui-slider {
 
 	
 input.mobile-ui-slider + label { 
-
 	float:left;
 	font-size:15px;
 	font-weight:normal;
@@ -245,8 +236,8 @@ input.mobile-ui-slider + label {
 	width:57px;
 	display:inline-block;
    -webkit-transition: all 0.3s  ease-in-out;
-
-} 
+}
+ 
 input.mobile-ui-slider[type=radio]:disabled:checked + label,
 input.mobile-ui-slider[type=radio]:focus:disabled:checked + label,
 input.mobile-ui-slider[type=checkbox]:disabled:checked + label,
