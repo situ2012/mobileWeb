@@ -1,0 +1,555 @@
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>热血江湖-游戏点卡-网易商城</title>
+<meta name="Keywords" content="热血江湖,点卡,游戏点卡,点卡充值平台,游戏充值,游戏卡,网易商城,商城" />
+<meta name="Description" content="网易商城点卡充值折扣高，价格便宜，可实时购买充值，包括Q币，征途，劲舞团，梦幻，诛仙，天龙八部，蜀门，问道等国内热门游戏。自动交易、官方保障等服务让您购物无忧！" />
+<link rel="stylesheet" href='http://img3.126.net/shop/css/shopCommon.css?v=0.20948360257779208' />
+<link rel="stylesheet" href='http://img3.126.net/shop/css/buyDianka.css?v=0.14538804005793637' />
+<script type="text/javascript" src='http://img3.126.net/shop/js/base.js?v=14164'></script>
+<script type="text/javascript" src='js/localStorage.js?v=14164'></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+<div class="top-nav fs12 black1">
+	<div class="top-nav-inner clearfix">
+		<div class="login-nav fl">
+			
+			
+                       您好，欢迎来到网易商城！<form style="display: inline;" action="/login.do"><a onclick="useLoginPopSendData(this);" href="javascript:void(0)">请登录</a></form>&nbsp;&nbsp;<a href="#" onclick="javascript:location.href='http://reg.163.com/reg/reg.jsp?product=shop&username_r=&url='+encodeURIComponent('http://shop.163.com/') + '&loginurl='+encodeURIComponent('http://shop.163.com/')">免费注册</a>
+			
+		</div>
+
+		<ul class=" quick-menu fr">
+			<li>
+				<a href="/">商城首页</a>|
+			</li>
+			<li>
+				
+				
+					<form style="display: inline;" action="/user/queryUserDetail.html">
+						<a onclick="useLoginPopSendData(this);" href="javascript:void(0)">我的账户</a></form>|
+			</li>
+			<li>
+				<a href="/help/shop.html" target="_blank">帮助</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!--登录框 开始-->
+<div class="urs_login_box" id="popLogin" style="display:none">
+  <!--第一行—顶部*/-->
+  <div class="urs_login_top">
+    <div class="urs_login_t_m"></div>
+  </div>
+  <div class="urs_login_t_l"></div>
+  <div class="urs_login_t_r"></div>
+  <!--第二行—中间内容区*/-->
+  <form class="urs_login_form" id="loginForm" action="/login.do" method="post">
+    <div class="urs_login_suggest"> <span class="suggest_box" id="useremail_box">
+      <input type="text" class="urs_login_input" id="useremail" autocomplete="off" value="如name@example.com" style="color:#999;" name="ursLoginUserName"/><span id="nameInputErr" class="ursLoginErr"></span>
+      </span> </div>
+    <div class="urs_login_middle">
+      <div class="urs_login_m_l"></div>
+      <div class="urs_login_m_r"></div>
+      <div class="urs_login_context">
+        <h3 class="urs_login_title">登录网易通行证<span class="urs_login_close" id="btnPopLoginClose"></span></h3>
+        <div class="urs_login_con">
+          <table width="96%" border="0" cellpadding="0" cellspacing="0" class="urs_login_table">
+            <tr>
+              <td width="29%" height="44"><div align="right">帐号：</div></td>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td height="44"><div align="right">密码：</div></td>
+              <td colspan="2"><input type="password" id="userpassword" name="ursLoginUserPass" class="urs_login_input" /><span id="passInputErr" class="ursLoginErr"></span></td>
+            </tr>
+            <tr>
+              <td height="16">&nbsp;</td>
+              <td width="35%"></td>
+              <td><a href="http://reg.163.com/RecoverPasswd1.shtml" class="urs_login_link">忘记密码？</a></td>
+            </tr>
+            <tr>
+              <td  height="40">&nbsp;</td>
+              <td><input type="submit" onclick="return checkLoginInput()" value="登录" class="urs_login_btn" /></td>
+              <td><div align="right"><a href="#" onclick="javascript:location.href='http://reg.163.com/reg/reg.jsp?product=shop&username_r=&url='+encodeURIComponent('http://shop.163.com/') + '&loginurl='+encodeURIComponent('http://shop.163.com/')" class="urs_login_link">注册网易通行证>></a></div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!--第三行—底部*/-->
+  <div class="urs_login_b_m"><span style="display:block"></span></div>
+  <div class="urs_login_b_l"></div>
+  <div class="urs_login_b_r"></div>
+</div>
+<!--登录框 结束-->
+<script>
+function setLoginName(id) {
+var p_info = this.getCookie("P_INFO");
+var cookieValue;
+var cookieName;
+if (p_info != null && p_info != false) {
+cookieValue = p_info.split("|");
+if (cookieValue != null && cookieValue.length > 0) {
+cookieName = cookieValue[0];
+}
+};
+if (cookieName) {
+document.getElementById(id).style.color = "#000";
+document.getElementById(id).value = cookieName;
+};
+};
+setLoginName.prototype.getCookie = function(sName) {
+var sRE = "(?:; )?" + sName + "=([^;]*);?";
+var oRE = new RegExp(sRE);
+if (oRE.test(document.cookie)) {
+return decodeURIComponent(RegExp["$1"]);
+} else {
+return null;
+}
+};
+if($("useremail")){
+new setLoginName("useremail");}
+
+</script>
+
+   <!--头部元素-->
+
+  
+  
+  
+ <!--{{头部元素}}-->
+<script type="text/javascript" src="http://img3.126.net/shop/js/jquery-1.3.2.js?v=2012051410"></script>
+<script>
+var $j=jQuery.noConflict();
+$j(function(){
+	$j('#mainNav li').mouseenter(function(){
+		if($j(this).attr('id')!='active'){
+			if($j(this).hasClass('noMore')){
+				$j(this).addClass('current').addClass('other')
+			}else{
+				$j(this).addClass('current')
+			}
+		}
+	}).mouseleave(function(){
+		if($j(this).attr('id')!='active'){
+			$j(this).removeClass('current').removeClass('other');
+		}
+	})
+})
+</script>
+<div class="layout">
+  <a href="/" class="logo">网易商城</a><span class="header_banner">乐得美好生活</span>
+</div>
+<div class="nav">
+  <!-- 主导航开始 -->
+  <div class="layout">
+    <ul id="mainNav">
+      <li class='noMore'  class=""><a href="/">首页</a></li>
+      <li >
+      	 <a href="http://caipiao.163.com" target="_blank">网易彩票</a>
+      	 <div class="snav">
+          <p class="hot"><strong>最新</strong><a href="http://notice.caipiao.163.com/11/0810/10/7B3E7QBU00754ITT.html" target="_blank">注册未满一个月即中大奖</a><a href="http://caipiao.163.com/order/preBet_kl8.html" target="_blank">快乐8</a></p>
+          <p><strong>福彩</strong><a href="http://caipiao.163.com/order/preBet_ssq.html" target="_blank">双色球</a><a href="http://caipiao.163.com/order/preBet_x3d.html" target="_blank">3D</a><a href="http://caipiao.163.com/order/preBet_qlc.html" target="_blank">七乐彩</a></p>
+          <p><strong>体彩</strong><a href="http://caipiao.163.com/order/preBet_pl3.html" target="_blank">排列三</a><a href="http://caipiao.163.com/order/preBet_pl5.html" target="_blank">排列五</a><a href="http://caipiao.163.com/order/preBet_qxc.html" target="_blank">七星彩</a><a href="http://caipiao.163.com/order/preBet_dlt.html"  target="_blank">超级大乐透</a></p>
+          <p><strong>高频彩</strong><a href="http://caipiao.163.com/order/preBet_jxssc.html"  target="_blank">江西时时彩</a><a href="http://caipiao.163.com/order/preBet_ssc.html"  target="_blank">重庆时时彩</a><a href="http://caipiao.163.com/order/preBet_d11.html"  target="_blank">十一运夺金</a><a href="http://caipiao.163.com/order/preBet_kl8.html"  target="_blank">快乐8</a></p>
+          <p><strong>足彩</strong><a href="http://caipiao.163.com/order/preBet_sfc.html"  target="_blank">胜负彩</a><a href="http://caipiao.163.com/order/preBet_rx9.html"  target="_blank">任选九</a><a href="http://caipiao.163.com/order/preBet_dcspf.html"  target="_blank">单场胜平负</a></p>          
+          <p><strong>大奖</strong><a href="http://caipiao.163.com/order/preBet_ssq.html"  target="_blank">双色球</a><a href="http://caipiao.163.com/order/preBet_dlt.html"  target="_blank">超级大乐透</a><a href="http://caipiao.163.com/order/preBet_sfc.html"  target="_blank">胜负彩</a><a href="http://caipiao.163.com/order/preBet_qxc.html"  target="_blank">七星彩</a><a href="http://caipiao.163.com/order/preBet_qlc.html"  target="_blank">七乐彩</a></p>          
+          <p><strong>返奖率</strong><a href="http://caipiao.163.com/order/preBet_dcspf.html"  target="_blank">单场胜平负</a><a href="http://caipiao.163.com/order/preBet_sfc.html"  target="_blank">胜负彩</a><a href="http://caipiao.163.com/order/preBet_rx9.html"  target="_blank">任选九</a><a href="http://caipiao.163.com/order/preBet_d11.html"  target="_blank">十一运夺金</a><a href="http://caipiao.163.com/order/preBet_ssc.html"  target="_blank">重庆时时彩</a></p>          
+          <p class="bd_none hot"><strong>热门</strong><a href="http://caipiao.163.com/mobile/main.jsp" target="_blank">手机彩票，积分翻倍</a><a href="http://zx.caipiao.163.com/" target="_blank">彩票资讯</a></p>
+        </div>
+      </li>
+      <li  id="active" class='noMore'><a href="/game/queryGame.html">游戏直充</a></li>
+      <li  class='noMore'><a href="/mobile/fill.html">话费充值</a></li>
+      <li>
+        <a href="http://baoxian.163.com" target="_blank">网易保险</a>
+        <div class="snav">
+          <p class="hot"><strong>最新</strong><a href="http://baoxian.163.com/?from=mallz1" target="_blank">网易车险业务上线啦！</a></p>
+          <p><strong>车险</strong><a href="http://baoxian.163.com/car/pingan.html?from=mallc1" target="_blank">平安车险</a><a href="http://bx.163.com/car/yangguang.html?from=mallc2" target="_blank">阳光车险</a><a href="http://bx.163.com/car/taipingyang.html?from=mallc3" target="_blank">太平洋车险</a></p>
+          <p class="bd_none hot"><strong>热门</strong><a href="http://baoxian.163.com/?from=mallh1" target="_blank">品牌直销多省15%</a><a href="http://baoxian.163.com/?from=mallh2" target="_blank">买就送免费救援</a></p>
+        </div>
+      </li>
+     <li>
+      <a href="http://tuan.163.com" target="_blank">网易团长</a>
+        <div class="snav tuan" style="left:auto;right:-2px">
+          <p><strong>美食</strong><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E4%B8%AD%E9%A4%90" target="_blank">中餐</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E8%87%AA%E5%8A%A9" target="_blank">自助</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E7%81%AB%E9%94%85" target="_blank">火锅</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E7%83%A7%E7%83%A4" target="_blank">烧烤</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E6%B5%B7%E9%B2%9C" target="_blank">海鲜</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E8%A5%BF%E9%A4%90" target="_blank">西餐</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E6%97%A5%E9%9F%A9%E6%96%99%E7%90%86" target="_blank">日韩料理</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E5%BF%AB%E9%A4%90" target="_blank">快餐</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BE%8E%E9%A3%9F&subTag=%E7%94%9C%E5%93%81" target="_blank">甜品</a></p>
+          <p><strong>娱乐</strong><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E7%94%B5%E5%BD%B1" target="_blank">电影</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=KTV" target="_blank">KTV</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E6%97%85%E6%B8%B8" target="_blank">旅游</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E9%83%8A%E6%B8%B8"  target="_blank">郊游</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E9%85%92%E5%90%A7"  target="_blank">酒吧</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E8%AF%9D%E5%89%A7"  target="_blank">话剧</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E6%BC%94%E5%87%BA"  target="_blank">演出</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E8%BF%90%E5%8A%A8%E5%81%A5%E8%BA%AB"  target="_blank">运动健身</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E6%B5%B7%E5%BA%95%E4%B8%96%E7%95%8C"  target="_blank">海底世界</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E7%9B%B8%E5%A3%B0"  target="_blank">相声</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E7%91%9C%E4%BC%BD"  target="_blank">瑜伽</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E6%B8%A9%E6%B3%89"  target="_blank">温泉</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E8%B6%B3%E7%96%97"  target="_blank">足疗</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E5%8F%B0%E7%90%83"  target="_blank">台球</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E7%94%B5%E7%8E%A9"  target="_blank">电玩</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E9%99%B6%E8%89%BA"  target="_blank">陶艺</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E5%8A%A8%E7%89%A9%E5%9B%AD"  target="_blank">动物园</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E6%B8%B8%E4%B9%90%E5%9B%AD"  target="_blank">游乐园</a><a href="http://tuan.163.com/tuan/details.do?tag=%E5%A8%B1%E4%B9%90&subTag=%E5%AC%89%E6%B0%B4"  target="_blank">嬉水</a></p>
+          <p><strong>生活</strong><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E7%BE%8E%E5%AE%B9"  target="_blank">美容</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E7%BE%8E%E5%8F%91"  target="_blank">美发</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E7%98%A6%E8%BA%AB"  target="_blank">瘦身</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E5%A9%9A%E7%BA%B1"  target="_blank">婚纱</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E5%86%99%E7%9C%9F"  target="_blank">写真</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E9%85%92%E5%BA%97"  target="_blank">酒店</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E7%BE%8E%E7%94%B2"  target="_blank">美甲</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E4%BD%93%E6%A3%80"  target="_blank">体检</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E7%89%99%E7%A7%91"  target="_blank">牙科</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E6%95%99%E8%82%B2%E5%9F%B9%E8%AE%AD"  target="_blank">教育培训</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E6%B1%BD%E8%BD%A6%E6%9C%8D%E5%8A%A1"  target="_blank">汽车服务</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%94%9F%E6%B4%BB&subTag=%E5%AE%A0%E7%89%A9%E6%8A%A4%E7%90%86"  target="_blank">宠物护理</a></p>
+          <p><strong>网购</strong><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E9%A3%9F%E5%93%81%E8%8C%B6%E9%85%92"  target="_blank">食品茶酒</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E5%8C%96%E5%A6%86%E5%93%81"  target="_blank">化妆品</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E6%9C%8D%E8%A3%85%E9%9E%8B%E5%B8%BD"  target="_blank">服装鞋帽</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E7%AE%B1%E5%8C%85"  target="_blank">箱包</a><a href=" http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E9%A5%B0%E5%93%81"  target="_blank">饰品</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E6%95%B0%E7%A0%81"  target="_blank">数码</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E6%AF%8D%E5%A9%B4%E5%84%BF%E7%AB%A5"  target="_blank">母婴儿童</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E5%AE%B6%E7%94%B5"  target="_blank">家电</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E5%9B%BE%E4%B9%A6%E9%9F%B3%E5%83%8F"  target="_blank">图书音像</a><a href="http://tuan.163.com/tuan/details.do?tag=%E7%BD%91%E8%B4%AD&subTag=%E5%88%B8%E7%B1%BB"  target="_blank">券类</a></p>
+         </div>
+      
+      </li>
+      <li >
+      <a href="http://yxp.163.com" class="bd_none" target="_blank">网易印像派</a>
+      <div class="snav"  style="left:auto;right:-2px">
+          <p class="hot"><strong>最新推荐</strong><a href="http://yxp.163.com/store/goods/5/120/?sss=fromshop163dh" target="_blank">个性T恤定制</a><a href="http://yxp.163.com/store/goods/9/119/?sss=fromshop163dh	" target="_blank">iPhone4/4S手机壳定制</a><a href="http://yxp.163.com/store/goods/11/117/?sss=fromshop163dh" target="_blank">LOMO卡</a><a href="http://yxp.163.com/store/goods/8/116/?sss=fromshop163dh" target="_blank">纯棉抱枕</a></p>
+          <p><strong>精品推荐</strong><a href="http://yxp.163.com/photo/ep.html?sss=fromshop163dh" target="_blank">照片冲印</a><a href="http://yxp.163.com/store/goods/3/104/?sss=fromshop163dh" target="_blank">照片书定制</a><a href="http://yxp.163.com/store/goods/5/108/?sss=fromshop163dh" target="_blank">纯银饰品定制</a><a href="http://yxp.163.com/store/goods/6/110/?sss=fromshop163dh" target="_blank">跨年台历</a><a href="http://yxp.163.com/designer/?sss=fromshop163dh" target="_blank">设计师限量款</a></p>
+          <p><strong>影集定制</strong><a href="http://yxp.163.com/store/goods/3/103/?sss=fromshop163dh" target="_blank">影楼精装照片书</a><a href="http://yxp.163.com/store/goods/3/104/?sss=fromshop163dh" target="_blank">家庭精装照片书</a><a href="http://yxp.163.com/store/goods/4/105/?sss=fromshop163dh" target="_blank">经典横款画册</a><a href="http://yxp.163.com/store/goods/4/106/?sss=fromshop163dh"  target="_blank">个性方款画册</a><a href="http://yxp.163.com/store/goods/4/107/?sss=fromshop163dh"  target="_blank">时尚竖款画册</a></p>
+          <p><strong>服饰配件</strong><a href="http://yxp.163.com/store/goods/5/108/1036/?sss=fromshop163dh"  target="_blank">名字项链</a><a href="http://yxp.163.com/store/goods/5/108/1037/?sss=fromshop163dh"  target="_blank">精品戒指</a><a href="http://yxp.163.com/store/goods/5/108/1038/?sss=fromshop163dh"  target="_blank">手镯手链</a><a href="http://yxp.163.com/store/goods/5/108/1039/?sss=fromshop163dh"  target="_blank">流行脚链</a><a href="http://yxp.163.com/store/goods/5/109/?sss=fromshop163dh"  target="_blank">多彩丝巾</a><a href="http://yxp.163.com/store/goods/5/120/?sss=fromshop163dh"  target="_blank">个性T恤</a></p>
+          <p><strong>家居装饰</strong><a href="http://yxp.163.com/store/goods/8/115/1065/?sss=fromshop163dh"  target="_blank">照片墙DIY</a><a href="http://yxp.163.com/store/goods/8/115/1066/?sss=fromshop163dh"  target="_blank">实木版画</a><a href="http://yxp.163.com/store/goods/8/115/1067/?sss=fromshop163dh"  target="_blank">无框画</a><a href="http://yxp.163.com/store/goods/8/116/?sss=fromshop163dh"  target="_blank">印花抱枕</a></p>          
+          <p><strong>照片水杯</strong><a href="http://yxp.163.com/store/goods/7/113/1057?sss=fromshop163dh"  target="_blank">马克杯</a><a href="http://yxp.163.com/store/goods/7/113/1058?sss=fromshop163dh"  target="_blank">魔术杯</a><a href="http://yxp.163.com/store/goods/7/114/1061?sss=fromshop163dh"  target="_blank">情侣马克杯</a>	<a href="http://yxp.163.com/store/goods/7/114/1062?sss=fromshop163dh"  target="_blank">情侣魔术杯</a></p>          
+          <p><strong>台历挂历</strong><a href="http://yxp.163.com/store/goods/6/110/?sss=fromshop163dh"  target="_blank">跨年台历</a><a href="http://yxp.163.com/store/goods/6/111/?sss=fromshop163dh"  target="_blank">照片挂历</a><a href="http://yxp.163.com/store/goods/6/112/?sss=fromshop163dh"  target="_blank">海报年历</a></p>
+          <p><strong>小玩意</strong><a href="http://yxp.163.com/store/goods/11/117/?sss=fromshop163dh"  target="_blank">LOMO卡片</a><a href="http://yxp.163.com/store/goods/11/118/?sss=fromshop163dh"  target="_blank">鼠标垫</a><a href="http://yxp.163.com/store/goods/11/127/?sss=fromshop163dh"  target="_blank">笔记本</a><a href="http://yxp.163.com/store/goods/11/122/?sss=fromshop163dh"  target="_blank">贺卡</a><a href="http://yxp.163.com/iwave/index/?sss=fromshop163dh"  target="_blank">i潮品</a></p>                    
+        </div>
+      
+      </li>
+    </ul>
+  </div>
+  <!--主导航结束-->
+</div>
+    <!--{{头部元素}}结束-->
+    <!--主体元素-->
+    <!--头部元素结束-->
+<!--整体包裹元素-->
+<div class="wrap fs12">
+ 
+   <!--{{主体元素}}-->
+    <div class="main   clearfix">
+        <!--内容-->
+        <!--内容-->
+        <div class=" border-g1">
+          <div class="trade-steps trade-step1"><ol class="clearfix"><li class="s1">填写购买信息</li><li class="s2">确认</li><li  class="s3">付款</li><li  class="s4">充值成功</li></ol></div> 
+            <div class="dianka-form-wrap">
+            <form action="/product/chargegame.do" method="post">
+              <input type="hidden" name="deliveryAddress" id="deliveryAddress" value="" />
+                <table>
+                    <tr>
+                        <th>游戏名称：</th>
+                        <td>
+                            
+                            <span id="gameNameWrap" class="game-name-wrap">
+                                <input id="gameName" name="gameName" style="width:154px; margin-right:-10px; border:1px solid #bdced8;" class="input1" type="text" value="热血江湖" readonly="readonly" />
+                                <input class="icon-down-scrow" type="button" value="&nbsp;" />
+                            </span>
+                                                        
+                            
+                       </td>
+                    </tr>
+                 
+                    <tr>
+                        <th>购买类型：</th>
+                        <td>
+                            <input class="radio" type="radio" checked="checked" name="buyType" value="11" />直充
+                       </td>
+                    </tr>  
+                </table>
+                
+           <div id="nameChangeUpdate" > 
+                <table>
+                    <tr>
+                        <th>充值面值：</th>
+                        <td>
+                            <select class="select1" name="productId" id="productId" onchange="changeFaceValue(this)">
+                             
+                              <option value="1" >
+                              1
+                               (单次可购买很多张)                              
+                              </option>
+                            
+                              <option value="10" >
+                              10
+                                                            
+                              </option>
+                            
+                              <option value="30" >
+                              30
+                                                            
+                              </option>
+                            
+                              <option value="100" selected="selected">
+                              100
+                                                            
+                              </option>
+                            
+                            </select> 元
+                        </td>
+                    </tr>
+                </table>
+ 
+              <div id="faceValueChangeUpdate" >  
+                <table>
+                    
+                    
+                                        <tr>
+                        <th id="changeAccountText1">账号：</th>
+                        <td><input id="accountInput1" autocomplete='off' class="input1" type="text" name="account1" value="" onblur="checkIsNull(this,$('accountErr1'))" /><span id="accountErr1" class="red1 fs12"></span></td>
+                    </tr>
+                    <tr>
+                        <th id="changeAccountText2">确认账号：</th>
+                        <td><input id="accountInput2" autocomplete='off' class="input1" type="text" name="account1" value="" onblur="checkIsSame(this.value,$('accountInput1').value,$('accountErr2'))" /><span id="accountErr2"  class="red1 fs12"></span></td>
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th>游戏区：</th>
+                        <td>
+                         <select class="select1" name="gameAreaId" onchange="changeArea(this);">
+                         
+                           <option value="10051">网通二区</option>
+                           
+                           <option value="263">电信六区</option>
+                           
+                           <option value="264">网通四区</option>
+                           
+                           <option value="265">网通一区</option>
+                           
+                           <option value="267">网通三区</option>
+                           
+                           <option value="269">电信一区</option>
+                           
+                           <option value="270">电信二区</option>
+                           
+                           <option value="271">电信三区</option>
+                           
+                           <option value="272">电信四区</option>
+                           
+                           <option value="273">电信五区</option>
+                           
+                         </select>
+                         </td>
+                    </tr>
+                    
+                    </table>
+                      <div id="areaChangeUpdate">
+                        <table>
+                        
+                        </table>
+                    </div>
+                    <table>
+                    
+                    
+                    
+                    <tr>
+                    <th>商品名称：</th>
+                        <td>中华网一卡通(热血江湖/东游记/特种部队/神泣/数码宝贝/光之国度)_2500点_100元(直充)</td>
+                    </tr> 
+                                          
+                     <tr>
+                        <th>购买数量：</th>
+                        <td><select onchange="changeSum('cztype',this)" style="width:50px;" id="chargenum" class="select1" name="buyCount">
+                              
+                                <option value="1">1</option>
+                              
+                                <option value="2">2</option>
+                              
+                                <option value="3">3</option>
+                              
+                                <option value="4">4</option>
+                              
+                                <option value="5">5</option>
+                              
+                                <option value="6">6</option>
+                              
+                                <option value="7">7</option>
+                              
+                                <option value="8">8</option>
+                              
+                           </select> 张</td>
+                    </tr>
+                     <tr id="yxczl">
+    					<th>游戏充值量：</th>
+    					<td>
+      						<span id="dianshu" style="width:200px"></span>
+    					</td>
+  					</tr>
+                    <tr>
+                        <th>应付金额：</th>
+                        <td>
+                          <span id="totalPrice" class="total-price">90.5</span>元<span id="priceRuler" class="price-ruler">（90.5x1=90.5）</span>
+                                                <!--游戏id、单价、合作方部分-->
+                            <input type="hidden" name="gameId" id="gameId" value="183" />   
+                            <input type="hidden" name="productName" id="productName" value="中华网一卡通(热血江湖/东游记/特种部队/神泣/数码宝贝/光之国度)_2500点_100元(直充)" />                   
+                        	<input type="hidden" name="gameIdLocal" id="gameIdLocal" value="183" />
+                            <input type="hidden" name="price" id="price" value="90.5" />
+                            <input type="hidden" name="listPrice" id="listPrice" value="100" />
+                            <input type="hidden" name="merchantId" id="merchantId" value="1" />
+                            <input type="hidden" name="productIdLocal" id="productIdLocal" value="3923" /> 
+							<input type="hidden" id="json" value="[]" />
+                        </td>
+                    </tr>
+                              <!--新修改的部分-->       
+                    </table> 
+                                      
+                   </div> 
+            </div><!-- <div id="nameChangeUpdate" style="background:#0CF; padding:3px"> --> 
+                    
+                    <table> 
+                    
+             <!--新修改部分结束--> 
+                   <tr>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                          <input  id="btnSubmitData" class="btn-orderbg6 " type="submit" onclick="return checkErrFlag([$('accountErr1'),$('accountErr2')])" value="立即充值" />
+                        </td>
+                    </tr>
+                </table>
+                </form>
+         
+            </div>
+            
+         </div>
+         
+          <div class="game-list-wrap game-list-wrap2 fl" id="gameListWrap">
+                 <!--首字母导航标签区域-->
+                        <ul class="game-letter-list clearfix" id="firstLetterIndexWrap">
+                            <li class="active hot-game-tab " >热门</li> 
+                            <li  firstL="A,B,C,D" >ABCD</li> 
+                            <li  firstL="E,F,G,H" >EFGH</li> 
+                            <li  firstL="I,J,K" >IJK</li> 
+                            <li  firstL="L,M,N" >LMN</li> 
+                            <li  firstL="O,P,Q,R" >OPQR</li> 
+                            <li  firstL="S,T,U" >STU</li> 
+                            <li  firstL="V,W,X" >VWX</li>  
+                            <li  firstL="Y,Z" >YZ</li>  
+                            <li  firstL="#" >数字</li>       
+                        </ul>  
+                 <!--内容区域-->
+                    <div id="tabContentWrap" class="game-content ">
+                    </div>
+                 
+                 <iframe id="gameListIframe" scrolling="no"  frameborder="0"  style=" background-color:transparent; position:absolute; width:300px; overflow:hidden; height:0px  left:0; top:26px; z-index:-1;"></iframe>
+                   
+             </div>
+            
+    </div>
+    <!--{{主体内容结束}}-->
+       <!--{{页尾元素开始}}-->
+ <div class="foot-wap"   >
+        <div class="index-foot">
+            <div class="index-foot-logo"><a href="http://shop.163.com"><img src="http://img3.126.net/shop/images/shop163-bottom-logo.png?v=14164" /></a></div>
+            <div class="index-foot-info clearfix">
+                <dl>
+                    <dt>常见问题</dt>
+                    <dd><span class="list_icon"></span><a href="/help/shop.html#Q1" target="_blank">在网易商城能买什么？</a></dd>
+                    <dd><span class="list_icon"></span><a href="/help/shop.html#Q3" target="_blank">网易商城购买流程</a></dd>
+                    <dd><span class="list_icon"></span><a href="/help/shop.html#Q2" target="_blank">网易商城优势</a></dd>
+                   <!-- <dd></span><a href="/html/contactUs.jsp" target="_blank">联系客服</a> </dd> -->
+
+                </dl>
+                <dl>
+                    <dt>支付相关</dt>
+                    <dd><span class="list_icon"></span><a href="/help/pay.html#Q2" target="_blank">网易宝余额支付</a></dd>
+                    <dd><span class="list_icon"></span><a href="/help/pay.html#Q3" target="_blank">网银/支付宝支付</a></dd>
+                    <dd><span class="list_icon"></span><a href="/help/pay.html#Q5" target="_blank">手机充值卡支付</a></dd>
+                    <dd><span class="list_icon"></span><a  target="_blank" href="/help/payProblem.html">支付异常</a></dd>
+                </dl>
+                <dl>
+                    <dt>商务合作</dt>
+                    <dd><span class="list_icon"></span><a href="/contactUs.html" target="_blank">合作联系</a></dd>
+                    <dd><span class="list_icon"></span><a href="http://emarketing.163.com" target="_blank">广告加盟</a></dd>
+                    <dd></dd>
+                    <dd></dd>
+                </dl>
+                <dl>
+                    <dt>友情链接</dt>
+                    <dd><span class="list_icon"></span><a href="http://epay.163.com" target="_blank">网易宝</a></dd>
+                    <dd><span class="list_icon"></span><a href="http://ecard.163.com" target="_blank">网易购卡直通车</a></dd>
+                    <dd><span class="list_icon"></span><a href="http://ecard.warcraftchina.com" target="_blank">魔兽在线购卡</a></dd>
+                    <dd><span class="list_icon"></span><a href="http://www.shaoxiang.cn" target="_blank">烧香网</a></dd>
+                </dl>
+            </div>
+            <!--  <div class="index-foot-info">-->
+        </div>
+    </div>
+    <!--主页页尾结束-->
+    <div class="footer"> <a href="http://corp.163.com/eng/about/overview.html" target="_blank">About NetEase</a> - <a href="http://gb.corp.163.com/gb/about/overview.html" target="_blank">公司简介</a> - <a href="http://gb.corp.163.com/gb/contactus.html" target="_blank">联系方法</a> - <a href="http://corp.163.com/gb/job/job.html" target="_blank">招聘信息</a> - <a href="http://help.163.com/" target="_blank">客户服务</a> - <a href="http://gb.corp.163.com/gb/legal.html" target="_blank">相关法律</a> - <a href="http://emarketing.biz.163.com/" target="_blank">网络营销</a> <br/>
+        网易公司版权所有 &copy;1997-2012 </div>
+    <!--{{页尾元素结束}}-->
+    <!-- START NetEase Devilfish-->
+    <script src="http://analytics.163.com/ntes.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      _ntes_nacc = "shop";
+      neteaseTracker();
+    </script>
+    <!-- END NetEase Devilfish-->
+    
+    <!--主页页尾结束-->
+</div>
+
+<!--{{登录浮层部分}}-->
+<div class="pop-style1 " id="popLogin">
+	<div class="pop-title-wrap relative">
+    	<h3 class="fwb ml15">登录网易商城</h3> <input class="btn-pop-close absolute " id="btnPopLoginClose" type="button"  />
+
+    </div>
+    <div class="pop-content-wrap">
+    <form id="loginForm" action="" method="post">
+    	<label><em class="em1">用户名:</em><span class="suggest_box" id="useremail_box"><input id="useremail"   type="text" class="input1"  value="" autocomplete="off" /></span></label>
+        <label><em class="em1">密&nbsp;&nbsp;码:</em><input class="input1" type="password" /></label>
+        <input style=" margin-left:54px;" class="btn-popbg1" type="submit" value=""/><a href="#">免费注册</a>
+    </form>
+
+    </div>
+</div>
+
+<!--整体包裹元素结束-->
+<script type="text/javascript">
+
+var NAME_CHANGE_AJAX_URL = "/product/nameChange.do?";
+var FACE_VALUE_CHANGE_AJAX_URL = "/product/listValueChange.do?";
+var AREA_CHANGE_AJAX_URL = "/product/queryServerlist.do?";
+var GAME_LIST_AJAX_URL = '/game/gamechargeform.html?gameId=';
+
+</script>
+<script type="text/javascript">
+var ajaxData = {hot:[{gameId:263,gameName:"Q币",listGamePrices:"1,5,10",gameListPrice:"10",price:"9.4"},{gameId:183,gameName:"热血江湖",listGamePrices:"1,10,30,100",gameListPrice:"100",price:"90.5"},{gameId:68,gameName:"5914卡（原5173卡）",listGamePrices:"12,24,36,48,60,72,84,96,108,120,240",gameListPrice:"240",price:"210.2"},{gameId:382,gameName:"盛大点券",listGamePrices:"1",gameListPrice:"1",price:"0.93"},{gameId:32,gameName:"剑侠世界",listGamePrices:"50",gameListPrice:"50",price:"46"},{gameId:3264,gameName:"地下城与勇士(DNF)点券",listGamePrices:"1",gameListPrice:"1",price:"0.94"},{gameId:338,gameName:"穿越火线CF",listGamePrices:"1,10,30",gameListPrice:"30",price:"28.05"},{gameId:1,gameName:"天龙八部2",listGamePrices:"5,15,40,100",gameListPrice:"100",price:"93"},{gameId:22,gameName:"反恐精英",listGamePrices:"1,10,15,30,50,100,120,150,200,300",gameListPrice:"300",price:"277.5"},{gameId:49,gameName:"QQ华夏",listGamePrices:"1,10,30",gameListPrice:"30",price:"27.15"},{gameId:16,gameName:"问道",listGamePrices:"1,10,20,30,40,50,70,100,200",gameListPrice:"200",price:"185.64"},{gameId:3404,gameName:"完美点券",listGamePrices:"15,30,50,100",gameListPrice:"100",price:"91.5"},{gameId:243,gameName:"剑侠情缘网络版叁",listGamePrices:"50",gameListPrice:"50",price:"47.25"},{gameId:150,gameName:"群雄逐鹿",listGamePrices:"1",gameListPrice:"1",price:"0.94"},{gameId:23,gameName:"跑跑卡丁车",listGamePrices:"1,10,15,30,50,100,120,150,200,300",gameListPrice:"300",price:"277.5"}],other:[{gameId:3429,gameName:"兵王",producerId:-1,Py:"bingwang"},{gameId:3428,gameName:"天龙八部3",producerId:3,Py:"tianlongbabu3"},{gameId:3427,gameName:"九阴真经",producerId:-1,Py:"jiuyinzhenjing"},{gameId:3426,gameName:"桃园",producerId:3,Py:"taoyuan"},{gameId:3425,gameName:"Q宠大乐斗",producerId:2,Py:"qchongdaledou"},{gameId:3424,gameName:"腾讯超级明星",producerId:2,Py:"tengxunchaojimingxing"},{gameId:3423,gameName:"QQ仙境",producerId:2,Py:"qqxianjing"},{gameId:3422,gameName:"夜店之王",producerId:2,Py:"yedianzhiwang"},{gameId:3421,gameName:"圣境传说",producerId:-1,Py:"shengjingchuanshuo"},{gameId:3420,gameName:"九界",producerId:2,Py:"jiujie"},{gameId:3419,gameName:"超级QQ",producerId:2,Py:"chaojiqq"},{gameId:3418,gameName:"御龙在天",producerId:2,Py:"yulongzaitian"},{gameId:3416,gameName:"自由幻想",producerId:2,Py:"ziyouhuanxiang"},{gameId:3415,gameName:"幻想世界金子",producerId:2,Py:"huanxiangshijiejinzi"},{gameId:3414,gameName:"多玩Y币",producerId:-1,Py:"duowanybi"},{gameId:3411,gameName:"王朝霸域",producerId:2,Py:"wangchaobayu"},{gameId:3410,gameName:"楚河汉界",producerId:2,Py:"chuhehanjie"},{gameId:3409,gameName:"QQ九仙",producerId:2,Py:"qqjiuxian"},{gameId:3408,gameName:"黄金国度",producerId:-1,Py:"huangjinguodu"},{gameId:3407,gameName:"魔法风云",producerId:-1,Py:"mofafengyun"},{gameId:3406,gameName:"昆仑世界",producerId:-1,Py:"kunlunshijie"},{gameId:3405,gameName:"边锋三区",producerId:7,Py:"bianfengsanqu"},{gameId:3404,gameName:"完美点券",producerId:4,Py:"wanmeidianquan"},{gameId:3403,gameName:"QQ华夏铜元宝",producerId:2,Py:"qqhuaxiatongyuanbao"},{gameId:3402,gameName:"QQ华夏银元宝",producerId:2,Py:"qqhuaxiayinyuanbao"},{gameId:3401,gameName:"QQ华夏金元宝",producerId:2,Py:"qqhuaxiajinyuanbao"},{gameId:3389,gameName:"久游一卡通",producerId:12,Py:"jiuyouyikatong"},{gameId:3388,gameName:"金山通行证",producerId:6,Py:"jinshantongxingzheng"},{gameId:3381,gameName:"三国风云",producerId:-1,Py:"sanguofengyun"},{gameId:3380,gameName:"成吉思汗2",producerId:-1,Py:"chengjisihan2"},{gameId:3379,gameName:"倚天剑与屠龙刀2",producerId:-1,Py:"yitianjianyutulongdao2"},{gameId:3378,gameName:"梦幻魔兽",producerId:-1,Py:"menghuanmoshou"},{gameId:3377,gameName:"热血西游",producerId:-1,Py:"rexuexiyou"},{gameId:3376,gameName:"魔神无双",producerId:-1,Py:"moshenwushuang"},{gameId:3375,gameName:"西游记",producerId:-1,Py:"xiyouji"},{gameId:3374,gameName:"抗战2",producerId:-1,Py:"kangzhan2"},{gameId:3373,gameName:"战争之路",producerId:-1,Py:"zhanzhengzhilu"},{gameId:3372,gameName:"大话武林",producerId:-1,Py:"dahuawulin"},{gameId:3371,gameName:"天地英雄",producerId:-1,Py:"tiandiyingxiong"},{gameId:3370,gameName:"龙刃",producerId:-1,Py:"longren"},{gameId:3369,gameName:"幻龙战记(4399)",producerId:-1,Py:"huanlongzhanji(4399)"},{gameId:3368,gameName:"明朝传奇(4399)",producerId:-1,Py:"mingchaochuanqi(4399)"},{gameId:3367,gameName:"英雄远征(4399)",producerId:-1,Py:"yingxiongyuanzheng(4399)"},{gameId:3366,gameName:"天地英雄(4399)",producerId:-1,Py:"tiandiyingxiong(4399)"},{gameId:3365,gameName:"洪荒神话(4399)",producerId:-1,Py:"honghuangshenhua(4399)"},{gameId:3364,gameName:"梦幻修仙(4399)",producerId:-1,Py:"menghuanxiuxian(4399)"},{gameId:3363,gameName:"英雄联盟",producerId:2,Py:"yingxionglianmeng"},{gameId:3362,gameName:"功夫世界",producerId:7,Py:"gongfushijie"},{gameId:3361,gameName:"功夫英雄",producerId:-1,Py:"gongfuyingxiong"},{gameId:3360,gameName:"龙OL",producerId:-1,Py:"longol"},{gameId:3359,gameName:"中华龙虎门",producerId:3,Py:"zhonghualonghumen"},{gameId:3358,gameName:"龙御OL",producerId:-1,Py:"longyuol"},{gameId:3357,gameName:"91斗斗",producerId:-1,Py:"91doudou"},{gameId:3356,gameName:"QQ西游",producerId:2,Py:"qqxiyou"},{gameId:3355,gameName:"战地之王AVA",producerId:2,Py:"zhandizhiwangava"},{gameId:3354,gameName:"大明龙权",producerId:2,Py:"daminglongquan"},{gameId:3353,gameName:"QQ寻仙",producerId:2,Py:"qqxunxian"},{gameId:3352,gameName:"穿越火线CF会员",producerId:2,Py:"chuanyuehuoxiancfhuiyuan"},{gameId:3350,gameName:"QQ仙侠传",producerId:2,Py:"qqxianxiachuan"},{gameId:3349,gameName:"绿色征途(腾讯)",producerId:2,Py:"lvsezhengtutengxun"},{gameId:3348,gameName:"成吉思汗(盛大版)",producerId:7,Py:"chengjisihan(shengdaban)"},{gameId:3347,gameName:"剑侠贰外传(盛大版)",producerId:7,Py:"jianxiaerwaichuan(shengdaban)"},{gameId:3346,gameName:"诸侯(盛大版)",producerId:7,Py:"zhuhou(shengdaban)"},{gameId:3345,gameName:"武林英雄",producerId:7,Py:"wulinyingxiong"},{gameId:3344,gameName:"星尘传说",producerId:7,Py:"xingchenchuanshuo"},{gameId:3343,gameName:"英雄连Online",producerId:7,Py:"yingxionglianonline"},{gameId:3342,gameName:"帝国远征",producerId:7,Py:"diguoyuanzheng"},{gameId:3341,gameName:"穿越Online",producerId:7,Py:"chuanyueonline"},{gameId:3340,gameName:"英雄年代",producerId:7,Py:"yingxiongniandai"},{gameId:3339,gameName:"战神世界II",producerId:7,Py:"zhanshenshijieii"},{gameId:3338,gameName:"英雄之门",producerId:7,Py:"yingxiongzhimen"},{gameId:3337,gameName:"盛大富翁",producerId:7,Py:"shengdafuweng"},{gameId:3336,gameName:"热血英豪",producerId:7,Py:"rexueyinghao"},{gameId:3335,gameName:"冒险宝贝",producerId:7,Py:"maoxianbaobei"},{gameId:3334,gameName:"边锋二区",producerId:7,Py:"bianfengerqu"},{gameId:3333,gameName:"传奇3",producerId:-1,Py:"chuanqi3"},{gameId:3332,gameName:"QQ宠物粉钻",producerId:2,Py:"qqchongwufenzuan"},{gameId:3331,gameName:"QQ堂紫钻",producerId:2,Py:"qqtangzizuan"},{gameId:3330,gameName:"QQ音速",producerId:2,Py:"qqyinsu"},{gameId:3329,gameName:"王者世界",producerId:18,Py:"wangzheshijie"},{gameId:3328,gameName:"新武林外传",producerId:4,Py:"xinwulinwaichuan"},{gameId:3326,gameName:"奇迹世界",producerId:18,Py:"qijishijie"},{gameId:3325,gameName:"洛奇英雄传",producerId:10,Py:"luoqiyingxiongchuan"},{gameId:3324,gameName:"梦幻修仙",producerId:10,Py:"menghuanxiuxian"},{gameId:3323,gameName:"疯狂松鼠",producerId:10,Py:"fengkuangsongshu"},{gameId:3322,gameName:"开心星球",producerId:10,Py:"kaixinxingqiu"},{gameId:3321,gameName:"黄金国度(巨人)",producerId:5,Py:"huangjinguodu(juren)"},{gameId:3320,gameName:"龙魂",producerId:5,Py:"longhun"},{gameId:3319,gameName:"征途2",producerId:5,Py:"zhengtu2"},{gameId:3318,gameName:"剑侠情缘网络版2(网络版)",producerId:6,Py:"jianxiaqingyuanwangluoban2(wangluoban)"},{gameId:3317,gameName:"幻想之翼",producerId:8,Py:"huanxiangzhiyi"},{gameId:3316,gameName:"封神榜3",producerId:6,Py:"fengshenbang3"},{gameId:3315,gameName:"封神榜2",producerId:6,Py:"fengshenbang2"},{gameId:3314,gameName:"春秋外传",producerId:6,Py:"chunqiuwaichuan"},{gameId:3313,gameName:"仙境幻想",producerId:-1,Py:"xianjinghuanxiang"},{gameId:3312,gameName:"仙侠风云",producerId:-1,Py:"xianxiafengyun"},{gameId:3311,gameName:"千军破",producerId:-1,Py:"qianjunpo"},{gameId:3310,gameName:"武侠风云",producerId:-1,Py:"wuxiafengyun"},{gameId:3309,gameName:"美眉梦工场",producerId:-1,Py:"meimeimenggongchang"},{gameId:3308,gameName:"凡人修真(蓝港)",producerId:-1,Py:"fanrenxiuzhen(langang)"},{gameId:3307,gameName:"快乐神仙",producerId:-1,Py:"kuaileshenxian"},{gameId:3306,gameName:"问鼎",producerId:-1,Py:"wending"},{gameId:3305,gameName:"神兽",producerId:-1,Py:"shenshou"},{gameId:3304,gameName:"佣兵天下",producerId:-1,Py:"yongbingtianxia"},{gameId:3303,gameName:"东邪西毒",producerId:-1,Py:"dongxiexidu"},{gameId:3302,gameName:"忍得天下",producerId:-1,Py:"rendetianxia"},{gameId:3301,gameName:"心跳棋牌",producerId:-1,Py:"xintiaoqipai"},{gameId:3300,gameName:"咕噜岛",producerId:-1,Py:"guludao"},{gameId:3299,gameName:"玄武",producerId:-1,Py:"xuanwu"},{gameId:3298,gameName:"天朝",producerId:-1,Py:"tianchao"},{gameId:3297,gameName:"梦回山海",producerId:-1,Py:"menghuishanhai"},{gameId:3296,gameName:"飘渺雪域(4399)",producerId:-1,Py:"piaomiaoxueyu(4399)"},{gameId:3295,gameName:"弹弹堂(4399)",producerId:-1,Py:"dandantang(4399)"},{gameId:3294,gameName:"富人国(4399)",producerId:-1,Py:"furenguo(4399)"},{gameId:3293,gameName:"远古封神(4399)",producerId:-1,Py:"yuangufengshen(4399)"},{gameId:3292,gameName:"九天仙梦(4399)",producerId:-1,Py:"jiutianxianmeng(4399)"},{gameId:3291,gameName:"玉之魂(4399)",producerId:-1,Py:"yuzhihun(4399)"},{gameId:3290,gameName:"凡人修真(4399)",producerId:-1,Py:"fanrenxiuzhen(4399)"},{gameId:3289,gameName:"极光世界",producerId:-1,Py:"jiguangshijie"},{gameId:3288,gameName:"大承一卡通",producerId:-1,Py:"dachengyikatong"},{gameId:3287,gameName:"鹿鼎记",producerId:3,Py:"ludingji"},{gameId:3286,gameName:"梦三国",producerId:-1,Py:"mengsanguo"},{gameId:3285,gameName:"股市大亨",producerId:-1,Py:"gushidaheng"},{gameId:3283,gameName:"长江七号",producerId:-1,Py:"changjiangqihao"},{gameId:3282,gameName:"九鼎传说",producerId:3,Py:"jiudingchuanshuo"},{gameId:3281,gameName:"古域",producerId:3,Py:"guyu"},{gameId:3280,gameName:"剑仙",producerId:3,Py:"jianxian"},{gameId:3279,gameName:"英雄岛(腾讯)",producerId:2,Py:"yinxiongdaotengxun"},{gameId:3278,gameName:"FIFA",producerId:18,Py:"fifa"},{gameId:3277,gameName:"天元",producerId:-1,Py:"tianyuan"},{gameId:3276,gameName:"传世群英传",producerId:7,Py:"chuanshiqunyingchuan"},{gameId:3275,gameName:"激斗",producerId:7,Py:"jidou"},{gameId:3274,gameName:"华山论剑",producerId:7,Py:"huashanlunjian"},{gameId:3273,gameName:"巨星",producerId:7,Py:"juxing"},{gameId:3272,gameName:"八门",producerId:7,Py:"bamen"},{gameId:3271,gameName:"X-乒乓",producerId:7,Py:"x-pingpang"},{gameId:3270,gameName:"推推侠",producerId:7,Py:"tuituixia"},{gameId:3269,gameName:"仙境传说",producerId:7,Py:"xianjingchuanshuo"},{gameId:3268,gameName:"起点中文网",producerId:7,Py:"qidianzhongwenwang"},{gameId:3267,gameName:"YY仙战",producerId:-1,Py:"yyxianzhan"},{gameId:3266,gameName:"路尼亚战记",producerId:-1,Py:"luniyazhanji"},{gameId:3265,gameName:"指环王",producerId:-1,Py:"zhihuanwang"},{gameId:3264,gameName:"地下城与勇士(DNF)点券",producerId:2,Py:"dixiachengyuyongshi(dnf)dianquan"},{gameId:3263,gameName:"地下城与勇士(DNF)黑钻",producerId:2,Py:"dixiachengyuyongshi(dnf)heizuan"},{gameId:3262,gameName:"九洲战记",producerId:18,Py:"jiuzhouzhanji"},{gameId:3261,gameName:"卓越之剑",producerId:18,Py:"zhuoyuezhijian"},{gameId:3260,gameName:"仙侣奇缘2",producerId:6,Py:"xianlvqiyuan2"},{gameId:3259,gameName:"范特西",producerId:10,Py:"fantexi"},{gameId:3258,gameName:"最三国",producerId:10,Py:"zuisanguo"},{gameId:3257,gameName:"食神小当家",producerId:10,Py:"shishenxiaodangjia"},{gameId:3256,gameName:"风暴战区",producerId:10,Py:"fengbaozhanqu"},{gameId:3255,gameName:"冲锋岛",producerId:10,Py:"chongfengdao"},{gameId:3253,gameName:"快乐西游",producerId:18,Py:"kuailexiyou"},{gameId:3252,gameName:"风火之旅",producerId:12,Py:"fenghuozhilv"},{gameId:3251,gameName:"光线飞车",producerId:12,Py:"guangxianfeiche"},{gameId:382,gameName:"盛大点券",producerId:7,Py:"shengdadianquan"},{gameId:381,gameName:"黄易群侠传",producerId:-1,Py:"huangyiqunxiazhuang"},{gameId:380,gameName:"十二之天贰",producerId:-1,Py:"shierzhitianer"},{gameId:379,gameName:"天使之恋",producerId:-1,Py:"tianshizhilian"},{gameId:378,gameName:"精灵乐章",producerId:-1,Py:"jinglingyuezhang"},{gameId:377,gameName:"牧场",producerId:-1,Py:"muchang"},{gameId:376,gameName:"风色幻想",producerId:-1,Py:"fengsehuanxiang"},{gameId:375,gameName:"风色群英传",producerId:-1,Py:"fengsequnyingzhuan"},{gameId:374,gameName:"三国群英传",producerId:-1,Py:"sanguoqunyingzhuan"},{gameId:373,gameName:"仙之岭",producerId:12,Py:"xianzhiling"},{gameId:372,gameName:"仙剑OL",producerId:12,Py:"xianjianol"},{gameId:371,gameName:"宠物森林",producerId:12,Py:"chongwusenlin"},{gameId:370,gameName:"魔力宝贝2",producerId:12,Py:"molibaobei2"},{gameId:369,gameName:"蓝海战记",producerId:12,Py:"lanhaizhanji"},{gameId:368,gameName:"流星蝴蝶剑",producerId:12,Py:"liuxinghudiejian"},{gameId:367,gameName:"神兵传奇",producerId:12,Py:"shenbingchuanqi"},{gameId:366,gameName:"吉堂社区",producerId:12,Py:"jitangshequ"},{gameId:365,gameName:"勇士OL",producerId:12,Py:"yongshiol"},{gameId:364,gameName:"大富翁OL",producerId:12,Py:"dafuwengol"},{gameId:363,gameName:"GT劲舞团2",producerId:12,Py:"gtjinwutuan2"},{gameId:362,gameName:"超级舞者",producerId:12,Py:"chaojiwuzhe"},{gameId:361,gameName:"绝地反击",producerId:8,Py:"juedifanji"},{gameId:360,gameName:"炫舞吧II",producerId:8,Py:"xuanwuba2"},{gameId:359,gameName:"巨龙",producerId:8,Py:"julong"},{gameId:358,gameName:"希望",producerId:8,Py:"xiwang"},{gameId:357,gameName:"神界",producerId:8,Py:"shenjie"},{gameId:356,gameName:"灵魂战神",producerId:8,Py:"linghunzhanshen"},{gameId:355,gameName:"梦幻蜀山",producerId:8,Py:"menghuanshushan"},{gameId:354,gameName:"问道外传",producerId:8,Py:"wendaowaizhuan"},{gameId:353,gameName:"天骄3",producerId:8,Py:"tianjiao3"},{gameId:352,gameName:"QQ飞车(点劵直充)",producerId:2,Py:"qqfeichedianquanzhichong"},{gameId:351,gameName:"传奇外传",producerId:7,Py:"chuanqiwaizhuan"},{gameId:350,gameName:"鬼吹灯外传",producerId:7,Py:"guichuidengwaizhuan"},{gameId:349,gameName:"生死格斗OL",producerId:7,Py:"shengsigedou"},{gameId:348,gameName:"功夫小子",producerId:7,Py:"gongfuxiaozi"},{gameId:344,gameName:"QQ炫舞(点劵直充)",producerId:2,Py:"qqxuanwudianquanzhichong"},{gameId:343,gameName:"七雄争霸",producerId:2,Py:"qixiongzhengba"},{gameId:342,gameName:"丝路英雄",producerId:2,Py:"siluyingxiong"},{gameId:340,gameName:"寻仙仙玉",producerId:2,Py:"xunxian"},{gameId:338,gameName:"穿越火线CF",producerId:2,Py:"chuanyuehuoxiancf"},{gameId:335,gameName:"剑侠世界（盛大）",producerId:7,Py:"jianxiashijieshengda"},{gameId:334,gameName:"蜀山online（盛大）",producerId:7,Py:"shushanonlineshengda"},{gameId:333,gameName:"新《魔界》",producerId:-1,Py:"xin<<mojie>>"},{gameId:332,gameName:"战神光辉",producerId:-1,Py:"zhanshenguanghui"},{gameId:331,gameName:"生肖外传",producerId:-1,Py:"shengxiaowaichuan"},{gameId:330,gameName:"诸侯",producerId:-1,Py:"zhuhou"},{gameId:328,gameName:"征战",producerId:6,Py:"zhengzhan"},{gameId:327,gameName:"盛世Online",producerId:-1,Py:"shengshionline"},{gameId:326,gameName:"龙战",producerId:-1,Py:"longzhan"},{gameId:324,gameName:"机甲世纪2",producerId:-1,Py:"jijiashiji2"},{gameId:321,gameName:"烈焰飞雪",producerId:-1,Py:"lieyanfeixue"},{gameId:318,gameName:"传奇归来",producerId:7,Py:"chuanqiguilai"},{gameId:314,gameName:"星战前夜EVE",producerId:-1,Py:"xingzhanqianye"},{gameId:310,gameName:"CDC金币",producerId:-1,Py:"cdcjinbi"},{gameId:308,gameName:"超级乒乓",producerId:7,Py:"chaojipingpang"},{gameId:305,gameName:"QQ三国",producerId:2,Py:"qqsanguo"},{gameId:304,gameName:"龙神传说",producerId:7,Py:"longshenchuanshuo"},{gameId:303,gameName:"千年3",producerId:7,Py:"qiannian3"},{gameId:302,gameName:"纵横天下",producerId:7,Py:"zonghengtianxia"},{gameId:301,gameName:"新英雄年代",producerId:7,Py:"xinyingxiongnian"},{gameId:300,gameName:"超级跑跑",producerId:7,Py:"chaojipaopao"},{gameId:299,gameName:"苍天",producerId:7,Py:"cangtian"},{gameId:298,gameName:"新热血英豪",producerId:7,Py:"xinrexueying"},{gameId:297,gameName:"疯狂赛车",producerId:7,Py:"fengkuangsaiche"},{gameId:294,gameName:"开心",producerId:-1,Py:"kaixin"},{gameId:293,gameName:"英雄无敌",producerId:-1,Py:"yingxiongwudi"},{gameId:287,gameName:"QQ游戏欢乐大礼包",producerId:2,Py:"qqyouxihuanledalibao"},{gameId:284,gameName:"QQ飞车紫钻(按月充)",producerId:2,Py:"qqfeiche"},{gameId:283,gameName:"QQ会员",producerId:2,Py:"qqhuiyuan"},{gameId:282,gameName:"QQ蓝钻(QQgame)",producerId:2,Py:"qqlanzuan(qqgame)"},{gameId:281,gameName:"QQ音速紫钻",producerId:2,Py:"qqyinsuzizuan"},{gameId:280,gameName:"QQ音乐绿钻",producerId:2,Py:"qqyinyuelvzuan"},{gameId:279,gameName:"QQ粉钻",producerId:2,Py:"qqfenzuan"},{gameId:278,gameName:"QQ紫钻",producerId:2,Py:"qqzizuan"},{gameId:277,gameName:"QQ交友",producerId:2,Py:"qqjiaoyou"},{gameId:276,gameName:"QQ黄钻(Q-ZONE)",producerId:2,Py:"qqhuangzuan(q-zone)"},{gameId:275,gameName:"QQ红钻(QQshow)",producerId:2,Py:"qqhongzuan(qqshow)"},{gameId:273,gameName:"霸王2",producerId:7,Py:"bawang2"},{gameId:272,gameName:"泡泡堂",producerId:7,Py:"paopaotang"},{gameId:271,gameName:"梦幻国度",producerId:7,Py:"menghuanguodu"},{gameId:266,gameName:"哼哼哈嘿",producerId:10,Py:"henghenghahei"},{gameId:265,gameName:"洛奇",producerId:10,Py:"luoqi"},{gameId:263,gameName:"Q币",producerId:2,Py:"qbi"},{gameId:256,gameName:"传奇世界",producerId:7,Py:"chuanqishijie"},{gameId:255,gameName:"圣魔之血",producerId:-1,Py:"shengmozhixue"},{gameId:251,gameName:"坦克世界",producerId:-1,Py:"tankeshijie"},{gameId:250,gameName:"星辰变",producerId:7,Py:"xingchenbian"},{gameId:249,gameName:"神鬼世界",producerId:4,Py:"shenguishijie"},{gameId:248,gameName:"降龙之剑",producerId:4,Py:"jianglongzhijian"},{gameId:247,gameName:"星尘-星空战记",producerId:7,Py:"xingchen-xingkongzhanji"},{gameId:246,gameName:"吞食天地2",producerId:7,Py:"tunshitiandi"},{gameId:243,gameName:"剑侠情缘网络版叁",producerId:6,Py:"jianxiaqingyuanwangluobansan"},{gameId:242,gameName:"蜀门OL",producerId:-1,Py:"shumenol"},{gameId:237,gameName:"剑侠贰外传",producerId:6,Py:"jianxiaerwaizhuan"},{gameId:232,gameName:"预言Online",producerId:-1,Py:"yuyanonline"},{gameId:230,gameName:"VS竞技游戏平台",producerId:-1,Py:"vsjingjiyouxipintai"},{gameId:229,gameName:"神魔大陆",producerId:4,Py:"shenmodalu"},{gameId:228,gameName:"真三国无双",producerId:-1,Py:"zhensanguowu"},{gameId:225,gameName:"剑舞江南",producerId:-1,Py:"jianwujiangnan"},{gameId:224,gameName:"华夏",producerId:-1,Py:"huaxia"},{gameId:223,gameName:"天龙八部",producerId:3,Py:"tianlongbabu"},{gameId:221,gameName:"凤舞天骄",producerId:-1,Py:"fengwutianjiao"},{gameId:220,gameName:"魔法之门",producerId:-1,Py:"mofazhimen"},{gameId:217,gameName:"新倚天剑与屠龙刀",producerId:-1,Py:"xinyitianjianyutulongdao"},{gameId:212,gameName:"边锋一区",producerId:7,Py:"bianfengyiqu"},{gameId:208,gameName:"热舞派对",producerId:4,Py:"rewupaidui"},{gameId:207,gameName:"春秋Q传",producerId:6,Py:"chunqiuqzhuan"},{gameId:206,gameName:"风云-武魂传说",producerId:7,Py:"fengyunwuhongchuanshuo"},{gameId:204,gameName:"联众币",producerId:-1,Py:"lianzhongbi"},{gameId:199,gameName:"完美世界前传",producerId:4,Py:"wanmeishijieqianzhuan"},{gameId:197,gameName:"Q点",producerId:2,Py:"qdian"},{gameId:195,gameName:"完美世界",producerId:4,Py:"wanmeishijie"},{gameId:194,gameName:"神迹",producerId:7,Py:"shenji"},{gameId:193,gameName:"圣斗士",producerId:-1,Py:"shengdoushi"},{gameId:192,gameName:"大富豪online",producerId:-1,Py:"dafuhaoonline"},{gameId:191,gameName:"纵横时空",producerId:-1,Py:"zonghengshikong"},{gameId:190,gameName:"绝地战争",producerId:-1,Py:"juedizhanzheng"},{gameId:189,gameName:"亮剑",producerId:-1,Py:"liangjian"},{gameId:188,gameName:"光之国度",producerId:-1,Py:"guangzhiguodu"},{gameId:187,gameName:"数码宝贝",producerId:-1,Py:"shumabaobei"},{gameId:186,gameName:"神泣",producerId:-1,Py:"shenqi"},{gameId:185,gameName:"特种部队",producerId:-1,Py:"tezhongbudui"},{gameId:184,gameName:"东游记",producerId:-1,Py:"dongyouji"},{gameId:183,gameName:"热血江湖",producerId:-1,Py:"rexuejianghu"},{gameId:182,gameName:"千秋",producerId:-1,Py:"qianqiu"},{gameId:181,gameName:"天道",producerId:-1,Py:"tiandao"},{gameId:180,gameName:"新战国英雄",producerId:-1,Py:"xinzhanguoyingxiong"},{gameId:179,gameName:"抗战",producerId:-1,Py:"kangzhan"},{gameId:178,gameName:"征服天石卡",producerId:-1,Py:"zhengfutianshika"},{gameId:177,gameName:"英雄美人",producerId:-1,Py:"yingxiongmeiren"},{gameId:176,gameName:"2061终结者",producerId:-1,Py:"2061zhongjiezhe"},{gameId:175,gameName:"蓬莱",producerId:-1,Py:"penglai"},{gameId:174,gameName:"迅雷雷点",producerId:-1,Py:"xunleileidian"},{gameId:173,gameName:"新郑和",producerId:-1,Py:"xinzhenghe"},{gameId:172,gameName:"侠义道",producerId:-1,Py:"xiayidao"},{gameId:171,gameName:"新侠义道",producerId:-1,Py:"xinxiayidao"},{gameId:170,gameName:"西西三国online",producerId:-1,Py:"xixisanguoonline"},{gameId:169,gameName:"武易",producerId:-1,Py:"wuyi"},{gameId:168,gameName:"神话",producerId:-1,Py:"shenhua"},{gameId:167,gameName:"武神",producerId:-1,Py:"wushen"},{gameId:166,gameName:"武林Y传",producerId:-1,Py:"wulinyzhuan"},{gameId:165,gameName:"机甲世纪革新版",producerId:-1,Py:"jijiashijigexinbang"},{gameId:164,gameName:"英雄之城",producerId:-1,Py:"yingxiongzhicheng"},{gameId:162,gameName:"帝国文明",producerId:-1,Py:"diguowenming"},{gameId:161,gameName:"天子OL",producerId:-1,Py:"tianziol"},{gameId:160,gameName:"舞街区",producerId:-1,Py:"wujiequ"},{gameId:159,gameName:"机甲世纪",producerId:-1,Py:"jijiashiji"},{gameId:158,gameName:"航海世纪",producerId:-1,Py:"hanghaishiji"},{gameId:157,gameName:"梦幻问情",producerId:-1,Py:"menghuanwenqing"},{gameId:156,gameName:"王者重生",producerId:-1,Py:"wangzhechongsheng"},{gameId:155,gameName:"投名状",producerId:-1,Py:"toumingzhuang"},{gameId:154,gameName:"天翼决",producerId:-1,Py:"tianyijue"},{gameId:153,gameName:"唐人游",producerId:-1,Py:"tangrenyou"},{gameId:152,gameName:"十二封印",producerId:-1,Py:"shierfengyin"},{gameId:151,gameName:"人生OL",producerId:-1,Py:"renshengol"},{gameId:150,gameName:"群雄逐鹿",producerId:-1,Py:"qunxiongzhulu"},{gameId:149,gameName:"三国争霸",producerId:-1,Py:"sanguozhengba"},{gameId:148,gameName:"奇迹MU（VIP区）",producerId:-1,Py:"qijimu(vipqu)"},{gameId:147,gameName:"奇迹",producerId:-1,Py:"qiji"},{gameId:146,gameName:"龙骑士OL",producerId:-1,Py:"longqishiol"},{gameId:145,gameName:"诺亚传说",producerId:-1,Py:"nuoyachuanshuo"},{gameId:141,gameName:"凤舞天娇",producerId:-1,Py:"fengwutianjiao"},{gameId:137,gameName:"魔域",producerId:-1,Py:"moyu"},{gameId:136,gameName:"魔力盒",producerId:-1,Py:"molihe"},{gameId:135,gameName:"面对面",producerId:-1,Py:"mianduimian"},{gameId:134,gameName:"梦幻迪士尼",producerId:-1,Py:"menghuandishini"},{gameId:133,gameName:"天涯OL",producerId:-1,Py:"tianyaol"},{gameId:132,gameName:"联众世界",producerId:-1,Py:"lianzhongshijie"},{gameId:131,gameName:"白金岛",producerId:-1,Py:"baijingdao"},{gameId:130,gameName:"清风武易",producerId:-1,Py:"qingfengwuyi"},{gameId:129,gameName:"浪漫庄园",producerId:-1,Py:"langmanzhuangyuan"},{gameId:128,gameName:"乐透游戏",producerId:-1,Py:"letouyouxi"},{gameId:127,gameName:"魔晶幻想",producerId:-1,Py:"mojinghuanxiang"},{gameId:126,gameName:"热血三国",producerId:-1,Py:"rexuesanguo"},{gameId:125,gameName:"篮球大联盟",producerId:-1,Py:"lanqiudalianmeng"},{gameId:118,gameName:"倚天剑与屠龙刀",producerId:-1,Py:"yitianjianyutulongdao"},{gameId:117,gameName:"酷我币卡",producerId:-1,Py:"kuwobika"},{gameId:116,gameName:"酷狗(KuGou)",producerId:-1,Py:"kugou(kugou)"},{gameId:115,gameName:"空战世纪",producerId:-1,Py:"kongzhanshiji"},{gameId:114,gameName:"蝌蚪币",producerId:-1,Py:"kedoubi"},{gameId:112,gameName:"帝国重生",producerId:-1,Py:"diguochongsheng"},{gameId:111,gameName:"仙魔OL",producerId:-1,Py:"xianmool"},{gameId:110,gameName:"神魔传",producerId:-1,Py:"shenmozhuan"},{gameId:109,gameName:"机战",producerId:-1,Py:"jizhan"},{gameId:108,gameName:"西游天下",producerId:-1,Py:"xiyoutianxia"},{gameId:107,gameName:"圣域传说",producerId:-1,Py:"shengyuchuanshuo"},{gameId:106,gameName:"明星斗地主OL",producerId:-1,Py:"mingxingdoudizhuol"},{gameId:105,gameName:"明星3缺1OL",producerId:-1,Py:"mingxing3que1ol"},{gameId:104,gameName:"仙界传",producerId:-1,Py:"xianjiezhuan"},{gameId:103,gameName:"傲仙",producerId:-1,Py:"aoxian"},{gameId:102,gameName:"封神无敌",producerId:-1,Py:"fengshenwudi"},{gameId:101,gameName:"魔力学堂",producerId:-1,Py:"molixuetang"},{gameId:100,gameName:"风雷游戏",producerId:-1,Py:"fengleiyouxi"},{gameId:99,gameName:"多玩币",producerId:-1,Py:"duowanbi"},{gameId:97,gameName:"魔神争霸",producerId:-1,Py:"moshenzhengba"},{gameId:96,gameName:"ko堂",producerId:-1,Py:"kotang"},{gameId:95,gameName:"神将",producerId:-1,Py:"shenjiang"},{gameId:94,gameName:"天羽传奇",producerId:-1,Py:"tianyuchuanqi"},{gameId:93,gameName:"天之痕",producerId:-1,Py:"tianzhihen"},{gameId:92,gameName:"豆客网",producerId:-1,Py:"doukewang"},{gameId:91,gameName:"侠客行",producerId:-1,Py:"xiakexing"},{gameId:89,gameName:"龙",producerId:-1,Py:"long"},{gameId:87,gameName:"恶魔法则",producerId:-1,Py:"emofaze"},{gameId:86,gameName:"波克城市",producerId:-1,Py:"bokechengshi"},{gameId:85,gameName:"百度币",producerId:-1,Py:"baidubi"},{gameId:84,gameName:"奥比岛",producerId:-1,Py:"aobidao"},{gameId:83,gameName:"盘龙神墓记",producerId:-1,Py:"panlongshenmuji"},{gameId:82,gameName:"Y3乐土",producerId:-1,Py:"y3letu"},{gameId:81,gameName:"玛雅起源",producerId:-1,Py:"mayaqiyuan"},{gameId:80,gameName:"XBA篮球经理",producerId:-1,Py:"xbalanqiujingli"},{gameId:79,gameName:"i游休闲平台",producerId:-1,Py:"iyouxiuxianpingtai"},{gameId:78,gameName:"挑战",producerId:-1,Py:"tiaozhan"},{gameId:77,gameName:"91币",producerId:-1,Py:"91bi"},{gameId:76,gameName:"投名状(91币卡)",producerId:-1,Py:"toumingzhuang91bika"},{gameId:75,gameName:"机战(91币卡)",producerId:-1,Py:"jizhan91bika"},{gameId:74,gameName:"征服(91币卡)",producerId:-1,Py:"zhengfu91bika"},{gameId:73,gameName:"明朝时代",producerId:-1,Py:"mingchaoshidai"},{gameId:72,gameName:"798GAME",producerId:-1,Py:"798game"},{gameId:71,gameName:"56币",producerId:-1,Py:"56bi"},{gameId:70,gameName:"51新炫舞",producerId:-1,Py:"51xinxuanwu"},{gameId:69,gameName:"51交友",producerId:-1,Py:"51jiaoyou"},{gameId:68,gameName:"5914卡（原5173卡）",producerId:-1,Py:"5914卡"},{gameId:67,gameName:"3D唯我乐园",producerId:-1,Py:"3dweiwoleyuan"},{gameId:66,gameName:"迪酷",producerId:-1,Py:"diku"},{gameId:65,gameName:"创世",producerId:8,Py:"chuangshi"},{gameId:64,gameName:"争霸天下",producerId:8,Py:"zhengbatianxia"},{gameId:63,gameName:"炫舞吧",producerId:8,Py:"xuanwuba"},{gameId:62,gameName:"秦始皇",producerId:8,Py:"qinshihuang"},{gameId:58,gameName:"新奇迹世界",producerId:18,Py:"xinqijishijie"},{gameId:54,gameName:"中华英雄",producerId:3,Py:"zhonghuayingxiong"},{gameId:53,gameName:"大话水浒",producerId:3,Py:"dahuashuihu"},{gameId:52,gameName:"刀剑英雄2",producerId:3,Py:"daojianyingxiong2"},{gameId:51,gameName:"巨人",producerId:5,Py:"juren"},{gameId:50,gameName:"QQ炫舞_紫钻",producerId:2,Py:"qqxuanwu"},{gameId:49,gameName:"QQ华夏",producerId:2,Py:"qqhuaxia"},{gameId:48,gameName:"诛仙前传",producerId:4,Py:"zhuxian2"},{gameId:47,gameName:"拍拍部落",producerId:-1,Py:"paipaibuluo"},{gameId:46,gameName:"街头篮球",producerId:-1,Py:"jietoulanqiu"},{gameId:45,gameName:"龙之刃",producerId:-1,Py:"longzhiren"},{gameId:44,gameName:"商战传奇",producerId:-1,Py:"shangzhanchuanqi"},{gameId:43,gameName:"蜀山OL",producerId:-1,Py:"shushan"},{gameId:42,gameName:"山海英雄",producerId:-1,Py:"shanhaiyingxiong"},{gameId:41,gameName:"航海传奇",producerId:-1,Py:"hanghaichuanqi"},{gameId:39,gameName:"帝国争霸",producerId:-1,Py:"diguozhengba"},{gameId:38,gameName:"雄霸三国",producerId:-1,Py:"xiongbasanguo"},{gameId:37,gameName:"天书奇谈",producerId:-1,Py:"tianshuqitan"},{gameId:36,gameName:"猫游记",producerId:-1,Py:"maoyouji"},{gameId:35,gameName:"醉逍遥",producerId:-1,Py:"zuixiaoyao"},{gameId:34,gameName:"远征",producerId:-1,Py:"yuanzheng"},{gameId:33,gameName:"人人网(帐号请填人人ID)",producerId:-1,Py:"renrenwang"},{gameId:32,gameName:"剑侠世界",producerId:6,Py:"jianxiashijie"},{gameId:31,gameName:"反恐行动",producerId:6,Py:"fankongxingdong"},{gameId:30,gameName:"成吉思汗",producerId:-1,Py:"chengjisihan"},{gameId:29,gameName:"SD敢达OL",producerId:12,Py:"sdgandaol"},{gameId:28,gameName:"劲舞团",producerId:12,Py:"jinwutuan"},{gameId:27,gameName:"功夫派",producerId:-1,Py:"gongfupai"},{gameId:26,gameName:"小花仙",producerId:-1,Py:"xiaohuaxian"},{gameId:25,gameName:"赛尔号",producerId:-1,Py:"saierhao"},{gameId:24,gameName:"摩尔庄园",producerId:-1,Py:"moerzhuangyuan"},{gameId:23,gameName:"跑跑卡丁车",producerId:10,Py:"paopaokadingche"},{gameId:22,gameName:"反恐精英",producerId:10,Py:"fankongjingying"},{gameId:21,gameName:"蜀门",producerId:-1,Py:"shumen"},{gameId:20,gameName:"彩虹岛",producerId:7,Py:"caihongdao"},{gameId:19,gameName:"冒险岛",producerId:7,Py:"maoxiandao"},{gameId:18,gameName:"永恒之塔",producerId:7,Py:"yonghengzhita"},{gameId:17,gameName:"热血传奇",producerId:7,Py:"rexuechuanqi"},{gameId:16,gameName:"问道",producerId:8,Py:"wendao"},{gameId:15,gameName:"仙途",producerId:5,Py:"xiantu"},{gameId:14,gameName:"我的小傻瓜",producerId:5,Py:"wodexiaoshagua"},{gameId:13,gameName:"万王之王3",producerId:5,Py:"wangwangzhiwang3"},{gameId:11,gameName:"绿色征途",producerId:5,Py:"lvsezhengtu"},{gameId:10,gameName:"征途",producerId:5,Py:"zhengtu"},{gameId:9,gameName:"梦幻诛仙",producerId:4,Py:"menghuanzhuxian"},{gameId:8,gameName:"口袋西游",producerId:4,Py:"koudaixiyou"},{gameId:7,gameName:"赤壁",producerId:4,Py:"chibi"},{gameId:6,gameName:"神鬼传奇",producerId:4,Py:"shenguichuanqi"},{gameId:5,gameName:"武林外传",producerId:4,Py:"wulinwaizhuan"},{gameId:4,gameName:"完美世界国际版",producerId:4,Py:"wanmeishikongguojiban"},{gameId:3,gameName:"龙之谷",producerId:7,Py:"longzhigu"},{gameId:1,gameName:"天龙八部2",producerId:3,Py:"tianloongbabu2"}]};
+var GAME_LIST_ARRAY = eval(ajaxData.other);
+var htmlStr='';
+	for(var i=0;i<ajaxData.hot.length;i++){
+		htmlStr+='<a href="javascript:void(0)" gameid='+ajaxData.hot[i].gameId+'>'+ ajaxData.hot[i].gameName +'</a>';
+	}
+	document.getElementById('tabContentWrap').innerHTML=htmlStr;
+</script>
+<script type="text/javascript" src='http://img3.126.net/shop/js/shopCommon.js?v=14164'></script>
+<script type="text/javascript" src='http://img3.126.net/shop/js/buyDiankaCommon.js?v=14164'></script>
+<script type="text/javascript" src='js/buyDianka-inputInfo.js?v=14164'></script>
+<!--<script type="text/javascript" src='http://img3.126.net/shop/js/buyDianka-inputInfo.js?v=14164'></script>-->
+<!--页面加载完成前，立即充值按钮不可用-->
+<script type="text/javascript">
+window.onload=function(){	
+    initQuatity('cztype');
+	if((document.readyState != "complete")&&(document.readyState != "loaded"))
+		{
+			document.getElementById("btnSubmitData").disabled="disabled";
+			var btn = document.getElementById("btnSubmitData");
+			addClass(btn,"btn-orderbg6-dis");
+		}
+	else return;
+}
+</script>
+</body>
+</html>

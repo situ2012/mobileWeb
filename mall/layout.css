@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	padding: 0;
+	margin: 0;	
+}
+
+#container{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+	-webkit-box-align: start;
+}
+
+#content{
+	margin: 20px 0 0 20px;
+}
+
+#content div:nth-child(2n){
+	margin: 5px 0 0 5px;
+}
+#content div:nth-child(2n+1){
+	margin: 15px 0 0 5px;
+}
+
+#header{
+
+	margin: 20px 0 0 20px;
+}
+
+#footer{
+
+	margin: 20px 0 0 20px;
+}
