@@ -82,11 +82,14 @@ function checkErrFlag(ElArray)
 	
 	//用户点击充值按钮，记录用户充值历史到本地
 	var currGameName = $('gameName').value;
+	var currGameId = $('gameId').value;
+	var currListPrice = $('listPrice').value;
+	var currGameInfo = currGameName + '|||' + currGameId + '|||' + currListPrice;
 	var historyGameName = LS.item('gameNameHistory');
 	if(historyGameName) {
-		historyGameName += '###' + currGameName;
+		historyGameName += '###' + currGameInfo;
 	}else{
-		historyGameName = currGameName;
+		historyGameName = currGameInfo;
 	}
 	var historyGameNameArray = historyGameName.split('###');
 	var historyArrayLen = historyGameNameArray.length;
