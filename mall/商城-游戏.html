@@ -43,7 +43,7 @@
 		<div class="login-nav fl">
 			
 			
-                       您好，欢迎来到网易商城！<form style="display: inline;" action="/login.do"><a onclick="useLoginPopSendData(this);" href="javascript:void(0)">请登录</a></form>&nbsp;&nbsp;<a href="#" onclick="javascript:location.href='http://reg.163.com/reg/reg.jsp?product=shop&username_r=&url='+encodeURIComponent('http://shop.163.com/') + '&loginurl='+encodeURIComponent('http://shop.163.com/')">免费注册</a>
+                       您好，欢迎来到网易商城！<form style="display: inline;" action="/login.do"><a onclick="useLoginPopSendData(this);" href="javascript:void(0)">请-登录</a></form>&nbsp;&nbsp;<a href="#" onclick="javascript:location.href='http://reg.163.com/reg/reg.jsp?product=shop&username_r=&url='+encodeURIComponent('http://shop.163.com/') + '&loginurl='+encodeURIComponent('http://shop.163.com/')">免费注册</a>
 			
 		</div>
 
@@ -175,7 +175,7 @@ $j(function(){
 	//查询并显示用户充值历史
 	var flag = ($j('.login-nav form a').text() == '请登录');
 	var innerHistoryGameList;
-	if(flag){ //
+	if(flag){
 		var historyGameName = LS.item('gameNameHistory');
 		if(historyGameName && historyGameName.indexOf('###') > -1){
 			innerHistoryGameList = (function(){
@@ -192,10 +192,10 @@ $j(function(){
 		}else{
 			innerHistoryGameList = '';
 		}
-		//alert(innerHistoryGameList)
+		$j('#historyTop3List').html('<dt>最近充值：</dt>' + innerHistoryGameList);
 	}else{
+		$j("#historyTop3List").load("data.jsp"); 
 	}
-	$j('#historyTop3List').html('<dt>最近充值：</dt>' + innerHistoryGameList);
 	//查询并显示用户充值历史
 })
 </script>
@@ -280,8 +280,8 @@ $j(function(){
         <div class="fl">
 
             <dl class="clearfix" id="historyTop3List">
-            	<dt>历史记录：</dt>
-                <!--
+            	<!--
+				<dt>历史记录：</dt>
                 <dt><a href="/game/gamechargeform.html?gameId=17" target="_blank">热血传奇</a>&nbsp;</dt>
                 <dt><a href="/game/gamechargeform.html?gameId=3" target="_blank">龙之谷</a>&nbsp;</dt>
                 <dt><a href="/game/gamechargeform.html?gameId=5" target="_blank">武林外传</a>&nbsp;</dt>
