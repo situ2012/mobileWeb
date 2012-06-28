@@ -181,12 +181,14 @@ $j(function(){
 			innerHistoryGameList = (function(){
 				var tmpStr = '';
 				$j.each(historyGameName.split('###'), function(i, v){
-					tmpStr += '<dt>'+v+'</dt>';
+					var tmpStrArray = v.split('|||');
+					tmpStr += '<dt><a href="/game/gamechargeform.html?gameId='+tmpStrArray[1]+'" target="_blank">'+tmpStrArray[0]+'</a>&nbsp;</dt>';
 				});
 				return tmpStr;	
 			})();
 		}else if(historyGameName){
-			innerHistoryGameList = '<dt>'+historyGameName+'</dt>';
+			var tmpStrArray = historyGameName.split('|||');
+			innerHistoryGameList = '<dt><a href="/game/gamechargeform.html?gameId='+tmpStrArray[1]+'" target="_blank">'+tmpStrArray[0]+'</a>&nbsp;</dt>';
 		}else{
 			innerHistoryGameList = '';
 		}
