@@ -1,0 +1,91 @@
+﻿/*
+ *	base style file for mobile pages
+ *	situ 
+ *	2012-07-12
+ *	NetEase, Inc.
+*/
+@media all{
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+
+	html{
+		font-size: 16px;
+		color: green;
+	}
+	
+	body{
+		width: 100%;
+		display: -webkit-box;
+		-webkit-box-pack: center;
+		background-color: #FAFAFA;
+	}
+	
+	/* For show something in a list, didn't accept tap event */
+	.list-item{
+		-webkit-border-radius: 0px;
+		background-color: #fff;
+		border: #CCCCCC solid 1px;
+		overflow: hidden;
+		margin: 5px;
+		position: relative;
+		display: block;
+		height: auto;
+		width: auto;
+		list-style: none;
+	}
+	.list-item li{
+		border-top: #CCCCCC solid 1px;
+		padding: 10px;
+	}
+	.list-item li:first-child{
+		border-top: 0;
+	}
+	/* For show something in a list, didn't accept tap event */
+	
+	/* For a list menu, when tap, navigate to another page */
+	.list-menu{
+		-webkit-border-radius: 0px;
+		background-color: #fff;
+		border: #CCCCCC solid 1px;
+		overflow: hidden;
+		margin: 5px;
+		position: relative;
+		display: block;
+		height: auto;
+		width: auto;
+		list-style: none;
+	}
+	.list-menu li{
+		border-top: #CCCCCC solid 1px;
+		padding: 10px;
+	}
+	.list-menu li:after{
+		content:">";
+		position:absolute;
+		right:10px;
+	}
+	.list-menu li:first-child{
+		border-top: 0;
+	}
+	.list-menu li:hover{
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#058cf5), to(#015fe6));
+	}
+	/* For a list menu, when tap, navigate to another page */
+}
+
+/*@media all and (min-width: 320px) and (min-height: 411px){
+	html{
+		font-size: 26px;
+		color: blue;
+	}
+}
+
+@media all and (min-width: 569px) and (min-height: 161px){
+	html{
+		font-size: 36px;
+		color: red;
+	}
+}
+*/
