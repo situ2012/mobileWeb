@@ -1,0 +1,12 @@
+﻿.closeable{
+	margin: 5px 5px 0 5px;
+	padding: 10px;
+	border: 1px solid #CCCCCC;
+	background-color: #FBDE88;
+	/*background: url(../img/close.png) no-repeat;
+	background-position: right center;*/
+}
+
+.closeable img{
+	float: right;
+}
